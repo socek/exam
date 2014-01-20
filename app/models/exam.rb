@@ -1,5 +1,5 @@
 class Exam < ActiveRecord::Base
   validates :title, presence: true
 
-  has_meny :options
+  has_many :questions
 end
