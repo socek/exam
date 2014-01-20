@@ -1,6 +1,8 @@
 class Answer < ActiveRecord::Base
   validates :content, presence: true
-  validates_inclusion_of :right, :in => [true, false]
+  validates :right,
+      presence: true,
+      inclusion: { in: [true, false] }
 
   belongs_to :question
 end
