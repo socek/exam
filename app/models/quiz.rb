@@ -1,4 +1,4 @@
-class Exam < ActiveRecord::Base
+class Quiz < ActiveRecord::Base
   validates :title, presence: true
 
   has_many :questions
