@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20140120195820) do
 
   create_table "questions", force: true do |t|
     t.text     "content"
-    t.integer  "exam_id"
+    t.integer  "quiz_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
