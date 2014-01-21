@@ -21,3 +21,9 @@ answer1_2 = Answer.create(content: "Michal Jackson", right:false, question: ques
 answer1_3 = Answer.create(content: "GB has no king right now.", right:true, question: questuion3)
 answer1_4 = Answer.create(content: "Queen Elizabeth is stil kicking!", right:true, question: questuion3)
 answer1_5 = Answer.create(content: "Earth is flat, because I tell you so!", right:false, question: questuion3)
+
+questuion4 = Question.create(content: "One question, to Answer it all!", quiz:quiz2)
+answer1_1 = Answer.create(content: "Tolkien", right:true, question: questuion4)
+answer1_2 = Answer.create(content: "Merry Popins", right:true, question: questuion4)
+answer1_3 = Answer.create(content: "Pawel, jumper (see youtube)", right:true, question: questuion4)
+answer1_4 = Answer.create(content: "Yes, this question has all the right answers!", right:true, question: questuion4)
