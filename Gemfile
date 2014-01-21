@@ -41,6 +41,8 @@ end
 
 gem 'rails_12factor', group: :production
 
+gem 'mail'
+
 group :test do
   gem 'rspec-rails'
   gem 'shoulda'

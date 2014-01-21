@@ -2,13 +2,15 @@
   <h1><%= @quiz.title %></h1>
   <%= form_tag submit_quiz_path @quiz do |form| %>
     <% @quiz.questions.each do |question| %>
-      <%= question.content %>
-      <ul>
-        <% for answer in question.answers %>
-          <li><%= check_box_tag question.input_name, answer.id %> <%= answer.content %></li>
-        <% end %>
-      </ul>
-      <%= submit_tag "Send", class: "btn btn-primary" %>
+      <div>
+        <%= question.content %>
+        <ul>
+          <% for answer in question.answers %>
+            <li><%= check_box_tag question.input_name, answer.id %> <%= answer.content %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
+    <%= submit_tag "Send", class: "btn btn-primary" %>
   <% end %>
 </div>
