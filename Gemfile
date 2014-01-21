@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'sorcery'
 
+gem "twitter-bootstrap-rails"
+
 group :development do
   gem 'guard-rspec'
 end
