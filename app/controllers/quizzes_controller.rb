@@ -4,7 +4,11 @@ class QuizzesController < ApplicationController
   end
 
   def show
-    @quiz = Quiz.find_by(id: id_param)
+    if current_user
+      @quiz = Quiz.find_by(id: id_param)
+    else
+      redirect_to sign_in_path, notice: 'Please sign in first'
+    end
   end
 
   def submit

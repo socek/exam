@@ -1,4 +1,7 @@
 
+user = User.create(email: 'user+msocek@gmail.com', username: 'SocekUser', permission: nil, password:'mypass')
+admin = User.create(email: 'admin+msocek@gmail.com', username: 'SocekAdmin', permission: 'admin', password:'mypass')
+
 quiz1 = Quiz.create(title: "First test")
 quiz2 = Quiz.create(title: "Second test")
 

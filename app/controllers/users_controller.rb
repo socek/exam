@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    PP.pp(user_params)
     if @user.save
       auto_login(@user)
       redirect_to root_url

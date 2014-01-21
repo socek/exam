@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
 
   def create
     user = login(params[:email], params[:password])
-    PP.pp(params)
     if user
       redirect_to root_path, :notice => "Logged in!"
     else
