@@ -1,0 +1,59 @@
+<%= form_tag quizzes_path do |form| %>
+  <div>
+    <%= label_tag :title, "Title:" %>
+    <%= text_field_tag :title %>
+  </div>
+  <ul id="questions">
+  </ul>
+  <div>
+    <button id="add_question" class="btn btn-primary">Add question</button>
+  </div>
+  <div>
+    <%= submit_tag "Send", class: "btn btn-primary" %>
+  </div>
+<% end %>
+<script type="text/javascript">
+  var add_answer = function(e) {
+    e.preventDefault();
+    var target = $(e.target);
+    var index = target.attr('index');
+    var ul = $('ul', target.closest('li'));
+    var element = $('#template_answer').clone();
+    element.removeAttr('id');
+
+    var answer_count = $('.answer', ul).length;
+
+    $('input[type=text]', element).attr('name', index +'['+ answer_count +'][content]')
+    $('input[type=checkbox]', element).attr('name', index +'['+ answer_count +'][right]')
+
+    ul.append(element);
+  };
+  var add_question = function(e) {
+    e.preventDefault();
+    var element = $('#template_question').clone();
+    element.removeAttr('id');
+
+    var index = 'question[' + $('.question').length + ']'
+    $('input[name=index]', element).attr('value', index);
+
+    $('input.question_input', element).attr('name', index + '[title]');
+
+    $('#questions').append(element);
+    $('button.add_answer', element).attr('index', index).click(add_answer);
+  };
+
+  $('#add_question').click(add_question);
+</script>
+<div class="hide">
+  <li id="template_question" class="question">
+    <input type="hidden" name="index">
+    Question: <input type="text" class="question_input" />
+    <ul>
+    </ul>
+    <button class="btn btn-primary add_answer">Add answer</button>
+  </li>
+
+  <li id="template_answer" class="answer">
+    <input type="text"> Is right: <input type="checkbox">
+  </li>
+</div>

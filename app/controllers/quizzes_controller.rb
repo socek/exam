@@ -22,6 +22,15 @@ class QuizzesController < ApplicationController
     @score = score
   end
 
+  def new
+    @quiz = Quiz.new
+  end
+
+  def create
+    PP.pp(params[:title])
+    PP.pp(params[:question])
+  end
+
   private
 
   def score

@@ -1,0 +1,7 @@
+<h1>Admin Panel</h1>
+<ul>
+  <% @quizzes.each do |quiz| %>
+    <li><%= quiz.title %>
+  <% end %>
+</ul>
+<a href="<%= new_quiz_path %>" class="btn btn-primary">Add quiz</a>
