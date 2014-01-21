@@ -1,0 +1,8 @@
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+    <li class="nav-header">Quizzes</li>
+    <% for quiz in @quizzes %>
+      <li><%= link_to quiz.title, "#"  %></li>
+    <% end %>
+  </ul>
+</div>
