@@ -27,8 +27,17 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    PP.pp(params[:title])
-    PP.pp(params[:question])
+    quiz = Quiz.create(title: params[:title])
+    params[:question].each do |index, question_hash|
+      title = question_hash.delete(:title)
+      question = Question.create(content: title)
+      quiz.questions.append(question)
+      question_hash.each do |index, answer_hash|
+        answer = Answer.create(content: answer_hash[:content], right: answer_hash.has_key?(:right))
+        question.answers.append(answer)
+      end
+    end
+    redirect_to admin_index_path
   end
 
   private
