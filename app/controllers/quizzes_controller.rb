@@ -20,6 +20,7 @@ class QuizzesController < ApplicationController
 
     @quiz = Quiz.find_by(id: id_param)
     @score = score
+    UserMailer.score_email(current_user, @score, @quiz.max_score).deliver
   end
 
   def new
